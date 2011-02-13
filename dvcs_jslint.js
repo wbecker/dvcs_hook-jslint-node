@@ -65,11 +65,11 @@
   processFiles = function (files) {
     files.forEach(function (file) {
       exec(cmd + file, function (error, stdout, stderr) {
-        utils.log(file, stdout);
+        utils.log(file, stdout, stderr);
         if (stdout.length > 0) {
           throw "JSLint error in " + file + ":\n" + stdout;
         }
       });
     });
-  }
+  };
 }())
