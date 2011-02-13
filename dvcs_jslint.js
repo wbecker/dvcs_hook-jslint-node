@@ -65,6 +65,7 @@
   processFiles = function (files) {
     files.forEach(function (file) {
       exec(cmd + file, function (error, stdout, stderr) {
+        utils.log(file + " " + stdout);
         if (((stdout.length > 0)  && !okRegExp.test(stdout)) || 
             (stderr.length > 0)) {
           throw "JSLint error in " + file + ":\n" + stdout;
