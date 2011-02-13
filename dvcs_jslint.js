@@ -65,11 +65,11 @@
   processFiles = function (files) {
     files.forEach(function (file) {
       exec(cmd + file, function (error, stdout, stderr) {
-        utils.log(cmd+" "+file+" "+ stdout+" "+ stderr);
-        if (stdout.length > 0) {
+        if (((stdout.length > 0)  && !okRegExp.test(stdout)) || 
+            (stderr.length > 0)) {
           throw "JSLint error in " + file + ":\n" + stdout;
         }
       });
     });
   };
-}())
+}());
