@@ -1,3 +1,8 @@
 This is a port of https://github.com/jrburke/dvcs_jslint to use node.js
 
-See the readme there for useage.
+See the readme there for useage...
+
+But here is a quick pre-commit hook:
+
+#!/bin/sh
+exec node https://github.com/wbecker/dvcs_hook-jslint-node/raw/master/dvcs_jslint.js https://github.com/tsmith/minlint/raw/master/minlint.js git
